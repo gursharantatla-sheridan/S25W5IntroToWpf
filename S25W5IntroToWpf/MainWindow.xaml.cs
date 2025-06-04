@@ -24,7 +24,12 @@ namespace S25W5IntroToWpf
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
             string name = txtName.Text;
-            MessageBox.Show("Hello " + name);
+            var result = MessageBox.Show("Hello " + name, "Message", MessageBoxButton.YesNo, MessageBoxImage.Information);
+
+            if (result == MessageBoxResult.Yes)
+                MessageBox.Show("YES clicked");
+            else
+                MessageBox.Show("NO clicked");
         }
 
         private void txtName_GotFocus(object sender, RoutedEventArgs e)
@@ -35,6 +40,12 @@ namespace S25W5IntroToWpf
         private void txtName_LostFocus(object sender, RoutedEventArgs e)
         {
             txtName.Background = Brushes.White;
+        }
+
+        private void btnGridExample_Click(object sender, RoutedEventArgs e)
+        {
+            GridExample gridEx = new GridExample();
+            gridEx.ShowDialog();
         }
     }
 }
